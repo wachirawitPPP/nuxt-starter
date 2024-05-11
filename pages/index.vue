@@ -15,7 +15,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 
 // Set the anniversary date
-const anniversaryDate = new Date('2024-05-17');
+const anniversaryDate = new Date('2024-05-17 00:00:00');
 
 // Calculate time remaining
 const timeRemaining = ref('');
