@@ -30,7 +30,7 @@ const calculateTimeRemaining = () => {
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    timeRemaining.value = `${days} days, ${hours-7} hours, ${minutes} minutes, ${seconds} seconds`;
+    timeRemaining.value = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
   } else {
     timeRemaining.value = 'Anniversary has passed!';
   }
