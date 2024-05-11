@@ -1,44 +1,65 @@
 <template>
-    <div class="container">
-      <h2 class="text-center mt-5 mb-4">Happy Birthday, [Your Girlfriend's Name]!</h2>
-      <img v-if="randomPosition&&!message" class="cry-cat" src="/public/crying-cat.gif" alt="">
-      <div class="text-center">
-        <button @click="showMessage" class="btn btn-lg btn-primary mr-3">Yes</button>
-        <button v-if="showNoButton" @click="generateRandomButton" class="btn btn-lg btn-danger">No</button>
-      </div>
-      <button v-if="randomPosition&&!message" @click="handleRandomButtonClick" :style="{ top: randomPosition.top + 'px', left: randomPosition.left + 'px', position: 'absolute' }" class="btn btn-lg btn-warning">No!</button>
-      
-      <p v-if="message" class=" text-center mt-4">You said Yes! 🎉</p>
+  <div class="d-flex flex-column align-items-center">
+    <img class="pic" src="/public/mochi-cat-love.gif" alt="">
+    <h6 class="mt-4">There are</h6>
+    <h6 class="time">{{ timeRemaining }}</h6>
+    <div class="col d-flex  align-items-center">
+      <h6 class="">until our anniversary, darling.</h6 >
+        
     </div>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  
-  const message = ref('');
-  const randomPosition = ref(null);
-  const showNoButton = ref(true);
-  
-  const showMessage = () => {
-    message.value = 'You said Yes! 🎉';
-    showNoButton.value = false;
-  };
-  
-  const generateRandomButton = () => {
-    const randomTop = Math.floor(Math.random() * window.innerHeight);
-    const randomLeft = Math.floor(Math.random() * window.innerWidth);
-    randomPosition.value = { top: randomTop, left: randomLeft };
-    showNoButton.value = false;
-  };
-  
-  const handleRandomButtonClick = () => {
-    generateRandomButton();
-  };
-  </script>
-  
-  <style>
-  
-    
-    .cry-cat{
-    }
-  </style>
+    <img class="run" src="/public/quby-run.gif" alt="">
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+// Set the anniversary date
+const anniversaryDate = new Date('2024-05-17');
+
+// Calculate time remaining
+const timeRemaining = ref('');
+
+const calculateTimeRemaining = () => {
+  const now = new Date();
+  const difference = anniversaryDate.getTime() - now.getTime();
+
+  if (difference > 0) {
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+    timeRemaining.value = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+  } else {
+    timeRemaining.value = 'Anniversary has passed!';
+  }
+};
+
+// Update the countdown every second (only in the browser)
+if (process.client) {
+  const interval = setInterval(calculateTimeRemaining, 1000);
+
+  // Stop the interval when the component is unmounted
+  onUnmounted(() => clearInterval(interval));
+}
+
+// Calculate time remaining on component mount
+onMounted(calculateTimeRemaining);
+</script>
+
+<style scoped>
+.pic {
+  width: 30%;
+}
+.run{
+  width: 10% ;
+  height: 10%;
+}
+.time{
+  color: pink;
+}
+.time:hover{
+  color: black;
+}
+</style>
