@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-10">
-          <div class="card m-5 p-2">
+          <div class="card m-3 p-2">
             <div class="card-header d-flex align-items-center">
               <img :src="avatarSrc" alt="User avatar" class="rounded-circle me-2" width="40" height="40">
               <div class="user-info">
@@ -161,5 +161,6 @@ export default {
 .date-post {
     font-size: 11px;
     font-style: italic;
+    color: #555;
 }
 </style>

@@ -4,15 +4,33 @@
       avatarSrc="/user.jpg"
       username="Memmories"
       imageSrc="/firstDate.jpg"
-      caption="Fisrt date ,First met. ❤️"
+      caption="Fisrt date. ❤️"
       location="Klang Plaza ,Nakhonratchasima Thailand"
+      date="12 March 2022"
     />
     <instragramPost
       avatarSrc="/user.jpg"
       username="Memmories"
-      imageSrc="/firstDate.jpg"
-      caption="Fisrt Date. ❤️"
+      imageSrc="/firstDate2.jpg"
+      caption="First met. 💖"
       location="Klang Plaza ,Nakhonratchasima Thailand"
+      date="12 March 2022"
+    />
+    <instragramPost
+      avatarSrc="/user.jpg"
+      username="Memmories"
+      imageSrc="/nan18.jpg"
+      caption="First cake.🎂"
+      location="Home ,Thailand"
+      date="31 March 2022"
+    />
+    <instragramPost
+      avatarSrc="/user.jpg"
+      username="Memmories"
+      imageSrc="/holdHand.jpg"
+      caption="🧑🏻‍🤝‍👩🏼🧑🏻‍🤝‍👩🏼🧑🏻‍🤝‍👩🏼🧑🏻‍🤝‍👩🏼🧑🏻‍🤝‍👩🏼"
+      location="Nakhonratchasima,Thailand"
+      date="22 May 2022"
     />
   </div>
 </template>
