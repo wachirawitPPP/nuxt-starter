@@ -8,7 +8,7 @@
               <div class="user-info">
                 <span>{{ username }}</span>
                 <div class="location">
-                  <span>{{ postDate }}</span>
+                  
                   <span>{{ location }}</span>
                 </div>
               </div>
@@ -17,10 +17,7 @@
               <img :src="imageSrc" alt="Post image" class="img-fluid">
             </div>
             <div class="card-body">
-              <div class="d-flex justify-content-start mb-2 icons">
-                <i :class="liked ? 'bi bi-heart-fill text-danger me-2' : 'bi bi-heart'" @click="toggleLike"></i>
-                <i class="bi bi-chat me-2"></i>
-              </div>
+              
               <p class="card-text">{{ caption }}</p>
               <p class="date-post">{{date}}</p>
             </div>
