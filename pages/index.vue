@@ -1,13 +1,25 @@
 <template>
   <div class="d-flex flex-column align-items-center">
-    <img class="pic" src="/public/mochi-cat-love.gif" alt="">
-    <h6 class="mt-4">There are</h6>
+   
+      <img class="pic" src="/public/mochi-cat-love.gif" alt="">
+    
+    <h6 class="mt-4" v-if="!timeRemainingState">There are</h6>
     <h6 class="time">{{ timeRemaining }}</h6>
-    <div class="col d-flex  align-items-center">
-      <h6 class="">until our anniversary, darling.</h6 >
-        
+    <div class="col d-flex align-items-center">
+      <h6 v-if="!timeRemainingState">until our anniversary, darling.</h6>
     </div>
-    <img class="run" src="/public/quby-run.gif" alt="">
+
+    <nuxt-link to="/journey">
+      <div v-if="timeRemainingState">
+        <button class="btn p-3 m-4"> <h5>I have something to tell you. 💌</h5></button>
+      </div>
+    
+    </nuxt-link>
+    
+      
+    
+      <img class="run" src="/public/quby-run.gif" alt="">
+    
   </div>
 </template>
 
@@ -19,6 +31,7 @@ const anniversaryDate = new Date('2024-05-17 00:00:00');
 
 // Calculate time remaining
 const timeRemaining = ref('');
+const timeRemainingState = ref(false);
 
 const calculateTimeRemaining = () => {
   const now = new Date();
@@ -32,7 +45,8 @@ const calculateTimeRemaining = () => {
 
     timeRemaining.value = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
   } else {
-    timeRemaining.value = 'Anniversary has passed!';
+    timeRemaining.value = 'Yeahhhh';
+    timeRemainingState.value = true;
   }
 };
 
@@ -52,14 +66,29 @@ onMounted(calculateTimeRemaining);
 .pic {
   width: 30%;
 }
-.run{
-  width: 10% ;
+
+.run {
+  width: 10%;
   height: 10%;
 }
-.time{
+
+.time {
   color: pink;
 }
-.time:hover{
+
+.time:hover {
   color: black;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+.btn{
+  background-color: #E1AFD1;
 }
 </style>

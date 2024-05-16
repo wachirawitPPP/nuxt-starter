@@ -52,7 +52,7 @@
 }
 .logo-name{
     font-style:oblique;
-    color:#4e3900;
+    color:#fff;
 }
 .logo-name:hover{
     color: #fff;
@@ -60,7 +60,7 @@
 }
 
 header{
-     background-color: #ffda03;
+     background-color: #E1AFD1;
  }
  
 
