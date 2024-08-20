@@ -4,7 +4,7 @@
     <NuxtPage />
   </div>
   <audio id="bg-music" ref="audioPlayer" loop>
-    <source src="/public/landokmai.mp3" type="audio/mpeg">
+    <!-- <source src="/public/landokmai.mp3" type="audio/mpeg"> -->
     Your browser does not support the audio element.
   </audio>
 </template>
